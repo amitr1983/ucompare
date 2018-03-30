@@ -19,7 +19,7 @@ module.exports = function (app) {
     app.post('/signup', Authentication.signup);
 
     app.route('/user')
-    .get(Authentication.list_all_users)
+    .get(Authentication.list_all_users, requireAuth)
 
     app.route('/user/:email')
     .get(Authentication.user_info)
