@@ -14,9 +14,9 @@ var userRoutes = require('./routes/userRoutes');
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 
-// var mongoDB = "mongodb://localhost/Renterdb"
+var mongoDB = "mongodb://localhost/UCompare"
 // var mongoDB = process.env.MONGODB_URI
-var mongoDB = "mongodb://amitcmpe:cmpe@ds229549.mlab.com:29549/ucompare"
+
 
 mongoose.connect(mongoDB);
 
