@@ -27,6 +27,10 @@ exports.signup = function (req, res, next) {
     const zip = req.body.zip;
     const usertype = req.body.usertype
 
+    console.log("Amit")
+    console.log(email)
+    console.log(password)
+
     if (!email || !password) {
         return res.status(422).send({error: 'You must provide email and password'});
     }
