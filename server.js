@@ -1,35 +1,41 @@
-const express = require('express'),
+var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
-  jwt = require('jsonwebtoken'),
+  mongoose = require('mongoose'),
+  bodyParser = require('body-parser'),
   session = require('express-session'),
-  mongoose = require('mongoose');
+  validator = require('express-validator'),
+  jwt = require('jsonwebtoken'),
+  morgan = require('morgan'); 
 
 var productRoutes = require('./routes/indexRoutes');
 var userRoutes = require('./routes/userRoutes');
+  
+// mongoose instance connection url connection
+mongoose.Promise = global.Promise;
 
+var mongoDB = "mongodb://localhost/UCompare"
+// var mongoDB = process.env.MONGODB_URI
+
+
+mongoose.connect(mongoDB);
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());	
 
 productRoutes(app);
 userRoutes(app);
 
-// mongoose instance connection url connection
-mongoose.Promise = global.Promise;
-
-var mongoDB = "mongodb://localhost/Ucomparedb"
-// var mongoDB = process.env.MONGODB_URI
-
-mongoose.connect(mongoDB);
-
-app.listen(port, function() {
-  console.log('listening on 3000')
-})
+app.listen(port);
 
 // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   var err = new Error('Not Found');
-//   err.status = 404;
-//   next(err);
-// });
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+
 
 console.log("UCompare web server started on: " + port)
-
