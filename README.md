@@ -13,9 +13,14 @@ Price comparison App
 
 4. Install modules
 
+```git clone https://github.com/Semantics3/semantics3-node.git```
+
+5. Install npm modules
+
+```npm install semantics3-node/```
 ```npm install```
 
-5. Start Server
+7. Start Server
 
 ```npm start```
 
