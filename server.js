@@ -1,6 +1,7 @@
 var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
+  path = require('path'),
   mongoose = require('mongoose'),
   bodyParser = require('body-parser'),
   session = require('express-session'),
@@ -19,8 +20,10 @@ var mongoDB = process.env.MONGODB_URI
 
 mongoose.connect(mongoDB);
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());	
+app.set('view engine', 'ejs'); // set up ejs 
 
 productRoutes(app);
 userRoutes(app);

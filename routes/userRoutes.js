@@ -11,7 +11,7 @@ module.exports = function (app) {
     });
 
     app.get('/signin', function (req, res) {
-        res.send({ message: 'Please signin with post request to /signin and pass email & password params' });
+        res.render('login.ejs');
     });
 
     app.post('/signin', requireSignin, Authentication.signin);
