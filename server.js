@@ -15,12 +15,9 @@ var searchRoutes = require('./routes/searchRoutes');
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 
-var mongoDB = "mongodb://localhost/UCompare"
-// var mongoDB = process.env.MONGODB_URI
-
+var mongoDB = process.env.MONGODB_URI
 
 mongoose.connect(mongoDB);
-
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());	

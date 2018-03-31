@@ -1,8 +1,8 @@
 // Controller for Search page
 
 exports.searchProduct = function (req, res, next) {
-  var api_key = '';
-  var api_secret = '';
+  var api_key = process.env.SM_API_KEY
+  var api_secret = process.env.SM_API_SECRET
   var sem3 = require('semantics3-node')(api_key,api_secret);
   var Semantics3 = require('semantics3-node-client');
 
