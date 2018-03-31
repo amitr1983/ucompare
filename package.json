@@ -25,7 +25,9 @@
     "passport-local": "^1.0.0",
     "semantics3-node": "file:semantics3-node",
     "semantics3-node-client": "^0.1.0",
-    "sequelize": "^4.13.5"
+    "sequelize": "^4.13.5",
+    "ejs": "^2.5.8",
+    "forever": "^0.15.3"
   },
   "devDependencies": {},
   "scripts": {
