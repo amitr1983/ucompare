@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = function(app) {
-  var Search = require('../controllers/SearchController');
-
+  var searchPage = require('../controllers/searchController');
+  
   app.route('/search')
-    .get(Search.searchProduct)
+    .get(searchPage.searchProduct)
 };
