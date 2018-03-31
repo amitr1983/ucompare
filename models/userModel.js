@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt-nodejs');
 
 // Define our model
 const userSchema = new Schema({
-    email: { type: String, unique: true, lowercase: true },
+    email: { type: String, unique: true},
     password: String,
     first_name: String,
     last_name: String,
@@ -30,8 +30,8 @@ userSchema.pre('save', function (next) {
     });
 });
 
-userSchema.methods.comparePasswords = function (candidatePassword, callback) {
-    bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
+userSchema.methods.comparePasswords = function (password, callback) {
+    bcrypt.compare(password, this.password, function (err, isMatch) {
         if (err) { return callback(err); }
 
         callback(null, isMatch);
