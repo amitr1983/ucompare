@@ -1,0 +1,29 @@
+---
+  - name: Provision an EC2 Instance
+    hosts: localhost
+    connection: local
+    gather_facts: False
+    tags: provisioning
+# Set variables for machine's attributes
+    vars:
+      instance_type: t2.micro # Change AWS instance type
+      security_group: launch-wizard-1 # Change Security group
+      image: ami-1853ac65 # Change AMI
+      region: us-east-1 # Change Region
+      keypair: amit-aws # Change keypair name
+      count: 1
+    tasks: 
+      - name: Launch the new EC2 Instance
+        local_action: ec2
+                      group={{ security_group }}
+                      instance_type={{ instance_type}}
+                      image={{ image }}
+                      region={{ region }}
+                      keypair={{ keypair }}
+                      count={{count}}
+                      wait=True
+        register: ec2
+
+      - name: Add new instance to host group
+        add_host: hostname={{ item.public_ip }} groupname=launched
+        with_items: '{{ec2.instances}}'
