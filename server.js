@@ -18,6 +18,7 @@ mongoose.Promise = global.Promise;
 
 var mongoDB = process.env.MONGODB_URI
 
+
 mongoose.connect(mongoDB);
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -32,10 +33,10 @@ searchRoutes(app);
 app.listen(port);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+//app.use(function(req, res, next) {
+//  var err = new Error('Not Found');
+// err.status = 404;
+ //next(err);
+//});
 
 console.log("UCompare web server started on: " + port)
