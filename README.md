@@ -25,3 +25,5 @@ Price comparison App
 ```npm start```
 
 Link: https://expressjs.com/
+
+Note: Make sure to export env variable for mongo, semantics3 keys
