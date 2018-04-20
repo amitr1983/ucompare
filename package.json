@@ -15,9 +15,11 @@
     "debug": "~2.2.0",
     "ejs": "^2.5.8",
     "express": "^4.13.4",
+    "express-force-ssl": "^0.3.2",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.13.0",
     "express-validator": "^2.20.5",
+    "force": "0.0.3",
     "forever": "^0.15.3",
     "hbs": "~3.1.0",
     "jsonwebtoken": "^8.1.0",
@@ -30,7 +32,8 @@
     "passport-local": "^1.0.0",
     "semantics3-node": "file:semantics3-node",
     "semantics3-node-client": "^0.1.0",
-    "sequelize": "^4.13.5"
+    "sequelize": "^4.13.5",
+    "ssl": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {

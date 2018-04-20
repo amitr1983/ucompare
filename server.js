@@ -7,11 +7,24 @@ var express = require('express'),
   session = require('express-session'),
   validator = require('express-validator'),
   jwt = require('jsonwebtoken'),
+  fs = require('fs'),
+  https = require('https'),
+  forceSsl = require('express-force-ssl'),
   morgan = require('morgan'); 
 
 var productRoutes = require('./routes/indexRoutes');
 var userRoutes = require('./routes/userRoutes');
 var searchRoutes = require('./routes/searchRoutes');
+
+// read cert files
+var key = fs.readFileSync('cert/private.key');
+var cert = fs.readFileSync( 'cert/mydomain.crt' );
+
+// Option using cert files
+var options = {
+  key: key,
+  cert: cert
+};
   
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
@@ -25,18 +38,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());	
 app.set('view engine', 'ejs'); // set up ejs 
+app.use(forceSsl);
 
 productRoutes(app);
 userRoutes(app);
 searchRoutes(app);
 
-app.listen(port);
+// app.listen(port);
 
-// catch 404 and forward to error handler
-//app.use(function(req, res, next) {
-//  var err = new Error('Not Found');
-// err.status = 404;
- //next(err);
-//});
+var server = https.createServer(options, app).listen(3000, function(){
+    console.log("server started at port 3000");
+});
 
 console.log("UCompare web server started on: " + port)
