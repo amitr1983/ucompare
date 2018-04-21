@@ -61,7 +61,7 @@
 										<a href="#" title="sintret"> <small>{{data.brand}}</small>
 										</a>
 									</div>
-									<small> <i class="glyphicon glyphicon-time"></i> $ {{data.price}} </small>
+									<small> <i class="glyphicon glyphicon-time"></i> As low as <a href="#">$ {{data.price}} </a> </small>
 								</div>
 							</div>
 						</div>
@@ -69,10 +69,14 @@
 							<a href="#">{{data.name}}</a>
 						</h4>
 						<p>{{data.description}}</p>
-						<div >
-                    		<a href="{{data.sitedetails[0].url}}" class="btn btn-info"><i class="fa fa-shopping-cart"></i>Buy</a>
-                    		<button type="button" class="btn btn-info" data-toggle="modal" data-target="#product_view"><i class="fa fa-search"></i>Add to Wishlist</button>
-               		 </div>
+						<div data-ng-repeat="site in data.sitedetails">
+							<div data-ng-show="site.latestoffers.length">
+								<div data-ng-repeat="offers in site.latestoffers">
+                    				<a href="{{site.url}}"><i class="fa fa-shopping-cart"></i>{{site.name}}</a><span>{{offers.price}}</span>
+                    			</div>
+                    		</div>
+               		 	</div>
+               		 	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#product_view"><i class="fa fa-search"></i>Add to Wishlist</button>
 					</div>
 				</div>
 				<hr class="block-div">
