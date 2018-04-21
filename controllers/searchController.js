@@ -9,6 +9,9 @@ exports.searchProduct = function (req, res, next) {
   const product = req.query.q;
  
   sem3.products.products_field( "search", product );
+  sem3.products.products_field( "sort", "price", "asc" );
+  sem3.products.products_field( "activeproductsonly", 1);
+  sem3.products.products_field( "isactive", true);
 
 // Run the request
   sem3.products.get_products(
