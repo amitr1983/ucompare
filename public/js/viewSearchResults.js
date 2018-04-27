@@ -42,9 +42,9 @@ app.controller("searchCtrl", [ '$scope', '$http', function($scope, $http) {
 		}
 	});*/
 	
-	$scope.searchResults = function() {
+	$scope.searchProductResults = function() {
 		var req = {
-				url : "http://localhost:3000/search",
+				url : "", //"http://localhost:3000/search"
 				type : "GET",	
 				headers : {
 					'Content-Type' : "application/json"

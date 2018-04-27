@@ -25,17 +25,26 @@
 </head>
 <body data-ng-app="viewSearchResultsApp">
 	<div data-ng-controller="searchCtrl">
-		
+		<div class="container-fluid">
+			<nav class="navbar" role="navigation" style="background: linear-gradient(to left, rgb(106, 214, 221), rgb(238, 242, 243));">
+				
+				<div class="panel-heading"><h2 class="fontfamily" align="center"><strong>ICompare</strong></h2></div>
+				<div>
+					<a href="" class="btn btn-xs btn-primary pull-right">WishList</a>
+				</div>
+			</nav>
+		</div>
+
 		<nav class="navbar navbar-default">
         <div class="nav nav-justified navbar-nav">
- 
+ 			<div></div>
             <form class="navbar-form navbar-search" role="search">
                 <div class="input-group">
         
                     <input id="typeahead-input" type="text" class="form-control" data-provide="typeahead" placeholder="Search" data-ng-model="searchStr">
                 
                     <div class="input-group-btn">
-                        <button type="button" class="btn btn-search btn-info" data-ng-click="searchResults()">
+                        <button type="button" class="btn btn-search btn-info" data-ng-click="searchProductResults()">
                             <span class="glyphicon glyphicon-search"></span>
                             <span class="label-icon">Search</span>
                         </button>
@@ -54,17 +63,13 @@
 						</a>
 					</div>
 					<div class="col-xs-12 col-sm-9 col-md-9">
-						<div class="list-group">
-							<div class="list-group-item">
-								<div class="row-content">
-									<div class="list-group-item-heading">
-										<a href="#" title="sintret"> <small>{{data.brand}}</small>
-										</a>
-									</div>
-									<small> <i class="glyphicon glyphicon-time"></i> As low as <a href="#">$ {{data.price}} </a> </small>
-								</div>
+						<div class="row-content">
+							<div class="list-group-item-heading">
+								<a href="#"> <small>{{data.brand}}</small></a>
 							</div>
+								<small>As low as <a href="#">$ {{data.price}} </a> </small>
 						</div>
+							
 						<h4>
 							<a href="#">{{data.name}}</a>
 						</h4>
@@ -72,10 +77,11 @@
 						<div data-ng-repeat="site in data.sitedetails">
 							<div data-ng-show="site.latestoffers.length">
 								<div data-ng-repeat="offers in site.latestoffers">
-                    				<a href="{{site.url}}"><i class="fa fa-shopping-cart"></i>{{site.name}}</a><span>{{offers.price}}</span>
+                    				<small><a href="{{site.url}}" class="link-padding"><i class="fa fa-shopping-cart"></i>{{site.name}}</a><span>{{offers.price}}</span></small>
                     			</div>
                     		</div>
                		 	</div>
+               		 	<br/>
                		 	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#product_view"><i class="fa fa-search"></i>Add to Wishlist</button>
 					</div>
 				</div>
