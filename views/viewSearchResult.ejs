@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Welcome to Ucompare</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="css/viewSearchResult.css">
+<!--===============================================================================================-->
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="//code.angularjs.org/1.5.6/angular.js"></script>
+<!--===============================================================================================-->
+<script src="//code.angularjs.org/1.5.6/angular-route.js"></script>
+<!--===============================================================================================-->
+<script src="js/viewSearchResults.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<!--===============================================================================================-->
+</head>
+<body data-ng-app="viewSearchResultsApp">
+	<div data-ng-controller="searchCtrl">
+		<div class="container-fluid">
+			<nav class="navbar" role="navigation" style="background: linear-gradient(to left, rgb(106, 214, 221), rgb(238, 242, 243));">
+				
+				<div class="panel-heading"><h2 class="fontfamily" align="center"><strong>ICompare</strong></h2></div>
+				<div>
+					<a href="" class="btn btn-xs btn-primary pull-right">WishList</a>
+					<div class="pull-right">
+                		<a href="https://www.facebook.com/ICompare-1527133874080140/" target="_blank"><small><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></small></a>
+	            		<a href="https://twitter.com/compare_i" class="link-padding" target="_blank"><small><i id="social-tw" class="fa fa-twitter-square fa-3x social"></small></i></a>
+					</div>
+				</div>
+			</nav>
+		</div>
+
+		<nav class="navbar navbar-default">
+        <div class="nav nav-justified navbar-nav">
+ 			<div></div>
+            <form class="navbar-form navbar-search" role="search">
+                <div class="input-group">
+        
+                    <input id="typeahead-input" type="text" class="form-control" data-provide="typeahead" placeholder="Search" data-ng-model="searchStr">
+                
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-search btn-info" data-ng-click="searchProductResults()">
+                            <span class="glyphicon glyphicon-search"></span>
+                            <span class="label-icon">Search</span>
+                        </button>
+                    </div>
+                </div>  
+            </form>   
+        </div>
+    </nav>
+
+		<div class="container" data-ng-show="isDataPresent">
+			<div class="row" data-ng-repeat="data in searchResults">
+				<div class="row">
+					<div class="col-xs-12 col-sm-3 col-md-3">
+						<a href="#"> <img data-ng-src="{{data.images[0]}}" class="img-responsive img-box img-thumbnail">
+						</a>
+					</div>
+					<div class="col-xs-12 col-sm-9 col-md-9">
+						<div class="row-content">
+							<div class="list-group-item-heading">
+								<a href="#"> <small>{{data.brand}}</small></a>
+							</div>
+								<small>As low as <a href="#">$ {{data.price}} </a> </small>
+						</div>
+							
+						<h4>
+							<a href="#">{{data.name}}</a>
+						</h4>
+						<p>{{data.description}}</p>
+						<div data-ng-repeat="site in data.sitedetails">
+							<div data-ng-show="site.latestoffers.length">
+								<div data-ng-repeat="offers in site.latestoffers">
+                    				<small><a href="{{site.url}}" class="link-padding"><i class="fa fa-shopping-cart"></i>{{site.name}}</a><span>{{offers.price}}</span></small>
+                    			</div>
+                    		</div>
+               		 	</div>
+               		 	<br/>
+               		 	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#product_view"><i class="fa fa-search"></i>Add to Wishlist</button>
+					</div>
+				</div>
+				<hr class="block-div">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

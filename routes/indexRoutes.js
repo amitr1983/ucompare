@@ -4,4 +4,8 @@ module.exports = function(app) {
 
  app.route('/')
     .get(indexPage.show_home)
+    
+    app.get('/view', function (req, res) {
+        res.render('viewSearchResult.ejs');
+    });
 };
