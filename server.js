@@ -46,10 +46,10 @@ userRoutes(app);
 searchRoutes(app);
 wishListRoutes(app);
 
-app.listen(port);
+// app.listen(port);
 
-// var server = https.createServer(options, app).listen(3000, function(){
-//     console.log("server started at port 3000");
-// });
+var server = https.createServer(options, app).listen(443, function(){
+    console.log("server started at port 443");
+});
 
 // console.log("UCompare web server started on: " + port)
