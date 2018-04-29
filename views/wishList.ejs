@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist | iCompare</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/price-range.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+	<link href="css/wishlist.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">      
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <script src="//code.angularjs.org/1.5.6/angular.js"></script>
+	<!--===============================================================================================-->
+	<script src="//code.angularjs.org/1.5.6/angular-route.js"></script>
+	<!--===============================================================================================-->
+	<script src="js/wishListCtl.js"></script>
+</head>
+
+<body data-ng-app="showWishlistApp">
+	<header id="header">
+		<div class="header_top">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+					</div>
+					<div class="col-sm-6">
+						<div class="social-icons pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href="https://www.facebook.com/ICompare-1527133874080140/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://twitter.com/compare_i" target="_blank"><i class="fa fa-twitter"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="header-middle">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="logo pull-left">
+							<a href=""><img src="images/home/logo_new.png" alt="" /></a>
+						</div>
+					</div>
+					<div class="col-sm-8">
+						<div class="shop-menu pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
+								<li><a href="" class="active"><i class="fa fa-star"></i> Wishlist</a></li>
+								<li><a href="/signin"><i class="fa fa-unlock"></i> Sign Out</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="header-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="breadcrumbs">
+							<ol class="breadcrumb">
+				  			<li><a href="#">Home</a></li>
+				  			<li class="active">My Wishlist</li>
+							</ol>
+				</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="search_box pull-right">
+							<input type="text" placeholder="Search"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-bottom-->
+	</header><!--/header-->
+
+	<section id="cart_items">
+		<div class="container" data-ng-controller="wishlistCtrl">
+
+			<div class="table-responsive cart_info">
+				<table class="table table-condensed">
+					<thead>
+						<tr class="cart_menu">
+							<td class="image">Item</td>
+							<td class="description"></td>
+							<td class="price">Price</td>
+							<td class="brand">Brand</td>
+							<td class="Sellers">Best offer</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr data-ng-repeat="group in groups">
+							<td class="cart_product">
+								<img src="{{ group.image }}" width="110px" height="110px" alt="">
+							</td>
+							<td class="cart_description" width="250px" nowrap>
+								<h4>{{ group.name }}</h4>
+								<p>Web ID: {{ group.sem3_id }}</p>
+							</td>
+							<td class="cart_price">
+								<p>${{ group.price }}</p>
+							</td>
+							<td class="cart_quantity">
+							<p>{{ group.brand }}</p>
+							</td>
+							<td class="cart_quantity">
+								<p>{{ group.site_details.name}}</p>
+							</td>
+							<td>
+								<a class="btn btn-fefault cart" href="{{group.site_details.url}}"><i class="fa fa-shopping-cart"> Buy now </i></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section> <!--/#cart_items-->
+
+	<footer id="footer"><!--Footer-->
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="companyinfo">
+							<h2><span>i</span>-compare</h2>
+							<p>Compare price for thousands of items through our search engine</p>
+						</div>
+					</div>
+					<div class="col-sm-7">
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="images/home/iframe1.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Compare</p>
+								<h2>Price</h2>
+							</div>
+						</div>
+						
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="images/home/iframe2.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Fashion</p>
+								<h2>Shopping</h2>
+							</div>
+						</div>
+						
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="images/home/iframe3.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Office</p>
+								<h2>dresses</h2>
+							</div>
+						</div>
+						
+						<div class="col-sm-3">
+							<div class="video-gallery text-center">
+								<a href="#">
+									<div class="iframe-img">
+										<img src="images/home/iframe4.png" alt="" />
+									</div>
+									<div class="overlay-icon">
+										<i class="fa fa-play-circle-o"></i>
+									</div>
+								</a>
+								<p>Sale</p>
+								<h2>Save money</h2>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="address">
+							<img src="images/home/map.png" alt="" />
+							<p>SJSU CMPE 282 Project Team, CA, USA</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<p class="pull-left">Copyright © 2018 iCompare. All rights reserved.</p>
+				</div>
+			</div>
+		</div>
+		
+	</footer><!--/Footer-->
+	
+
+
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/wishlist.js"></script>
+</body>
+</html>

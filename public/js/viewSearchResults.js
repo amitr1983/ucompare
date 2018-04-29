@@ -44,7 +44,7 @@ app.controller("searchCtrl", [ '$scope', '$http', function($scope, $http) {
 	
 	$scope.searchProductResults = function() {
 		var req = {
-				url : "/search",
+				url : "/search", //"http://localhost:3000/search"
 				type : "GET",	
 				headers : {
 					'Content-Type' : "application/json"
@@ -59,6 +59,33 @@ app.controller("searchCtrl", [ '$scope', '$http', function($scope, $http) {
 			$scope.isDataPresent = true;
 		}, function(error) {
 			$scope.isDataPresent = false;
+		});
+	};
+
+	$scope.addWishList = function(wishlist_param) {
+		var req = {
+				url : "/api/wishlist/add",
+				method : 'POST',	
+				headers : {
+					'Content-Type': 'application/json'
+				},
+				data : {
+					"name" : wishlist_param.name,
+    				"brand" : wishlist_param.brand,
+    				"price" : wishlist_param.price,
+    				"sem3_id" : wishlist_param.upc,
+    				"description" : wishlist_param.description,
+    				"images_uri" : wishlist_param.images_uri,
+    				"site_details" : wishlist_param.sitedetails[0],
+    				"image": wishlist_param.images[0]
+				}
+		}
+		$http(req).then(function(response) {
+			$("#success-alert1").show();
+			$("#success-alert1").fadeTo(2000, 1000).slideUp(1000, function(){
+		            });
+		}, function(error) {
+			console.log(error)
 		});
 	};
 

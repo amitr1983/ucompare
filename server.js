@@ -15,6 +15,7 @@ var express = require('express'),
 var productRoutes = require('./routes/indexRoutes');
 var userRoutes = require('./routes/userRoutes');
 var searchRoutes = require('./routes/searchRoutes');
+var wishListRoutes = require('./routes/wishListRoutes');
 
 // read cert files
 var key = fs.readFileSync('cert/private.key');
@@ -43,6 +44,7 @@ app.use(forceSsl);
 productRoutes(app);
 userRoutes(app);
 searchRoutes(app);
+wishListRoutes(app);
 
 // app.listen(port);
 
