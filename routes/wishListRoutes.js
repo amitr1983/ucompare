@@ -1,6 +1,15 @@
 'use strict';
 module.exports = function(app) {
   const WishList = require('../controllers/wishListController');
+  const User = require('../controllers/userController');
+
+  function isAuthenticated(req, res, next) {
+
+    if (req.user)
+      return next();
+
+    res.redirect('/signin');
+  }
 
  app.route('/api/wishlist')
     .get(WishList.list_all_wishlist)
@@ -11,7 +20,7 @@ module.exports = function(app) {
   app.route('/api/wishlist/add')
     .post(WishList.add_new_wishlist)
 
-  app.get('/wishlist', function (req, res) {
+  app.get('/wishlist', User.isAuthenticated, function (req, res) {
         res.render('wishList.ejs');
     });
 

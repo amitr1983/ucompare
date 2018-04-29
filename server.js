@@ -32,7 +32,6 @@ mongoose.Promise = global.Promise;
 
 var mongoDB = process.env.MONGODB_URI
 
-
 mongoose.connect(mongoDB);
 
 app.use(express.static(path.join(__dirname, 'public')));

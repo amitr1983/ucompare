@@ -76,3 +76,11 @@ exports.user_info = function(req, res) {
     res.json(user);
   });
 };
+
+exports.isAuthenticated = function(req, res, next) {
+
+    if (req.user)
+      return next();
+
+    res.redirect('/signin');
+  };
