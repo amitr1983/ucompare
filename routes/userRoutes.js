@@ -16,7 +16,7 @@ module.exports = function (app) {
     });
 
     app.get('/signin', function (req, res) {
-        res.redirect("https://ucompare.auth.us-east-1.amazoncognito.com/login?redirect_uri="+${redirect_uri}+"&response_type=code&client_id=$"+${client_id})
+        res.redirect("https://ucompare.auth.us-east-1.amazoncognito.com/login?redirect_uri=${redirect_uri}&response_type=code&client_id=${client_id}")
     });
 
     app.post('/signin', requireSignin, Authentication.signin);
