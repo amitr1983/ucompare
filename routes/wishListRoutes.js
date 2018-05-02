@@ -6,7 +6,7 @@ module.exports = function(app) {
   function isAuthenticated(req, res, next) {
 
     if (req.user)
-      return next();
+      res.redirect('/wishlist')
 
     res.redirect('/signin');
   }
