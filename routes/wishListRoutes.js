@@ -6,7 +6,7 @@ module.exports = function(app) {
   function isAuthenticated(req, res, next) {
 
     if (req.user)
-      res.redirect('/wishlist')
+      return req.next;
 
     res.redirect('/signin');
   }
@@ -20,7 +20,7 @@ module.exports = function(app) {
   app.route('/api/wishlist/add')
     .post(WishList.add_new_wishlist)
 
-  app.get('/wishlist', User.isAuthenticated, function (req, res) {
+  app.get('/wishlist', function (req, res) {
         res.render('wishList.ejs');
     });
 
