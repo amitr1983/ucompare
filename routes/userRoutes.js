@@ -31,6 +31,6 @@ module.exports = function (app) {
 
     app.get('/logout', function(req, res) {
       req.logout();
-      res.redirect('/');
+      res.redirect("https://ucompare.auth.us-east-1.amazoncognito.com/logout?redirect_uri="+redirect_uri+"&response_type=code&client_id="+client_id);
     });
 }
