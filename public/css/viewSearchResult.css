@@ -61,3 +61,11 @@
   background-position: 130px;
   text-align: center;
 }
+
+.footer-view {
+  background: #F0F0E9;
+  position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+}
