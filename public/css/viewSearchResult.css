@@ -62,9 +62,17 @@
   text-align: center;
 }
 
-.footer-view {
+.footer-view1 {
   background: #F0F0E9;
   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+}
+
+.footer-view2 {
+  background: #F0F0E9;
+  
    left: 0;
    bottom: 0;
    width: 100%;
