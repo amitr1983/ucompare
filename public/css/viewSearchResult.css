@@ -43,3 +43,21 @@
 
 .btn-primary{background-color:#117a8b}
 .link-padding{padding-right: 10px;}
+.social-icon-color{color: #696763;}
+
+.search_box_view input {
+  background: #F0F0E9;
+  border: medium none;
+  color: #B2B2B2;
+  font-family: 'roboto';
+  font-size: 12px;
+  font-weight: 300;
+  height: 38px;
+  outline: medium none;
+  padding-left: 10px;
+  width: 670px;
+  background-image: url(../images/home/searchicon.png);
+  background-repeat: no-repeat;
+  background-position: 130px;
+  text-align: center;
+}
