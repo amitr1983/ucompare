@@ -25,5 +25,5 @@ module.exports = function(app) {
     });
 
   app.route('/api/wishlist/delete/:wishlistid')
-    .delete(WishList.delete_a_wishlist);
+    .get(WishList.delete_a_wishlist);
 };

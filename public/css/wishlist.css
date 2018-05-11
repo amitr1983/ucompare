@@ -34,6 +34,19 @@ a {
     transition: 300ms;
 }
 
+.alert {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto', sans-serif;
 }
@@ -1292,6 +1305,17 @@ h2.title {
   margin-left: 20px;
 }
 
+.remove {
+  background: #FF9100;
+  border: 0 none;
+  border-radius: 0;
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
 
 .shop-details-tab {
   border: 1px solid #F7F7F0;
@@ -1594,6 +1618,10 @@ h2.title {
 
 #cart_items .cart_info .image {
   padding-left: 30px;
+  padding-right: 30px;
+  width: auto;
+  height: : auto;
+  border: none;
 }
 
 
@@ -1606,6 +1634,7 @@ h2.title {
   font-family: 'Roboto',sans-serif;
   font-size: 20px;
   font-weight: normal;
+  padding-left: 50px;
 
 }
 
@@ -2413,8 +2442,6 @@ h2.title {
   top: 25px;
   left: 5px
 } 
-
-
 
 /*************************
 ******* Contact CSS ********

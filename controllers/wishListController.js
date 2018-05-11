@@ -45,11 +45,15 @@ exports.view_a_wishlist = function(req, res) {
 
 exports.delete_a_wishlist = function(req, res) {
 
-    WishList.findByIdAndRemove(req.params.id, function(err, wishlist) {
-      console.log(req.params.id)
-        if (err)
-            res.send(err);
-        else
-            res.json({ message: 'Wishlist Deleted!'});
-    });
+  console.log(req.params.wishlistid)
+
+    WishList.remove({_id: req.params.wishlistid}, (err, todo) => {  
+
+    if (err) return res.status(500).send(err);
+    const response = {
+        message: "wishlist successfully deleted",
+        id: todo._id
+    };
+    return res.status(200).send(response);
+});
 }
